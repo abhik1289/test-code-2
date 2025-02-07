@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Dashboard</title>
+</head>
+<body>
+    <h1>Welcome, {{ user.fullname }}!</h1>
+    <div id="streamlit-container"></div>
+    <script src="https://cdn.jsdelivr.net/npm/iframe-resizer@4.3.6/js/iframeResizer.min.js"></script>
+    <script>
+        var iframe = document.createElement('iframe');
+        iframe.src = "/streamlit_iframe";
+        iframe.width = "100%";
+        iframe.height = "800px";
+        iframe.id = "streamlit-iframe";
+        document.getElementById('streamlit-container').appendChild(iframe);
+        iFrameResize({ log: true, checkOrigin: false }, '#streamlit-iframe');
+    </script>
+    <a href="{{ url_for('logout') }}">Logout</a>
+</body>
+</html>
